@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,8 @@
 		5108032925AE1D01004D6BB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5108032725AE1D01004D6BB3 /* LaunchScreen.storyboard */; };
 		5108033425AE1D02004D6BB3 /* ArtlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5108033325AE1D02004D6BB3 /* ArtlyTests.swift */; };
 		5108033F25AE1D02004D6BB3 /* ArtlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5108033E25AE1D02004D6BB3 /* ArtlyUITests.swift */; };
+		514B31D425AE259000200A21 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 514B31D325AE259000200A21 /* Core */; };
+		514B31DA25AE260300200A21 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 514B31D925AE260300200A21 /* Networking */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		5108033A25AE1D02004D6BB3 /* ArtlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5108033E25AE1D02004D6BB3 /* ArtlyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtlyUITests.swift; sourceTree = "<group>"; };
 		5108034025AE1D02004D6BB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		514B31CE25AE256200200A21 /* Core */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Core; sourceTree = "<group>"; };
+		514B31D525AE25FA00200A21 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Networking; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				514B31DA25AE260300200A21 /* Networking in Frameworks */,
+				514B31D425AE259000200A21 /* Core in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +87,9 @@
 				5108033225AE1D02004D6BB3 /* ArtlyTests */,
 				5108033D25AE1D02004D6BB3 /* ArtlyUITests */,
 				5108031725AE1CFF004D6BB3 /* Products */,
+				514B31CE25AE256200200A21 /* Core */,
+				514B31D525AE25FA00200A21 /* Networking */,
+				514B31D225AE259000200A21 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +158,13 @@
 			path = Resourses;
 			sourceTree = "<group>";
 		};
+		514B31D225AE259000200A21 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -166,6 +182,10 @@
 			dependencies = (
 			);
 			name = Artly;
+			packageProductDependencies = (
+				514B31D325AE259000200A21 /* Core */,
+				514B31D925AE260300200A21 /* Networking */,
+			);
 			productName = Artly;
 			productReference = 5108031625AE1CFF004D6BB3 /* Artly.app */;
 			productType = "com.apple.product-type.application";
@@ -627,6 +647,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		514B31D325AE259000200A21 /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
+		};
+		514B31D925AE260300200A21 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		5108032225AE1CFF004D6BB3 /* Artly.xcdatamodeld */ = {

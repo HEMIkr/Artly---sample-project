@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		5108031A25AE1CFF004D6BB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5108031925AE1CFF004D6BB3 /* AppDelegate.swift */; };
 		5108031C25AE1CFF004D6BB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5108031B25AE1CFF004D6BB3 /* SceneDelegate.swift */; };
-		5108031E25AE1CFF004D6BB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5108031D25AE1CFF004D6BB3 /* ViewController.swift */; };
-		5108032125AE1CFF004D6BB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5108031F25AE1CFF004D6BB3 /* Main.storyboard */; };
 		5108032425AE1CFF004D6BB3 /* Artly.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5108032225AE1CFF004D6BB3 /* Artly.xcdatamodeld */; };
 		5108032625AE1D01004D6BB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5108032525AE1D01004D6BB3 /* Assets.xcassets */; };
 		5108032925AE1D01004D6BB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5108032725AE1D01004D6BB3 /* LaunchScreen.storyboard */; };
@@ -39,8 +37,6 @@
 		5108031625AE1CFF004D6BB3 /* Artly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5108031925AE1CFF004D6BB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5108031B25AE1CFF004D6BB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5108031D25AE1CFF004D6BB3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5108032025AE1CFF004D6BB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5108032325AE1CFF004D6BB3 /* Artly.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Artly.xcdatamodel; sourceTree = "<group>"; };
 		5108032525AE1D01004D6BB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5108032825AE1D01004D6BB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -101,14 +97,9 @@
 		5108031825AE1CFF004D6BB3 /* Artly */ = {
 			isa = PBXGroup;
 			children = (
-				5108031925AE1CFF004D6BB3 /* AppDelegate.swift */,
-				5108031B25AE1CFF004D6BB3 /* SceneDelegate.swift */,
-				5108031D25AE1CFF004D6BB3 /* ViewController.swift */,
-				5108031F25AE1CFF004D6BB3 /* Main.storyboard */,
-				5108032525AE1D01004D6BB3 /* Assets.xcassets */,
-				5108032725AE1D01004D6BB3 /* LaunchScreen.storyboard */,
-				5108032A25AE1D01004D6BB3 /* Info.plist */,
-				5108032225AE1CFF004D6BB3 /* Artly.xcdatamodeld */,
+				5108035125AE1DD0004D6BB3 /* Resourses */,
+				5108035025AE1DCA004D6BB3 /* Common */,
+				5108034F25AE1DC3004D6BB3 /* Scenes */,
 			);
 			path = Artly;
 			sourceTree = "<group>";
@@ -131,6 +122,33 @@
 			path = ArtlyUITests;
 			sourceTree = "<group>";
 		};
+		5108034F25AE1DC3004D6BB3 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		5108035025AE1DCA004D6BB3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5108031B25AE1CFF004D6BB3 /* SceneDelegate.swift */,
+				5108031925AE1CFF004D6BB3 /* AppDelegate.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		5108035125AE1DD0004D6BB3 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				5108032225AE1CFF004D6BB3 /* Artly.xcdatamodeld */,
+				5108032A25AE1D01004D6BB3 /* Info.plist */,
+				5108032725AE1D01004D6BB3 /* LaunchScreen.storyboard */,
+				5108032525AE1D01004D6BB3 /* Assets.xcassets */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,6 +159,7 @@
 				5108031225AE1CFF004D6BB3 /* Sources */,
 				5108031325AE1CFF004D6BB3 /* Frameworks */,
 				5108031425AE1CFF004D6BB3 /* Resources */,
+				5108035C25AE1E3F004D6BB3 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -236,7 +255,6 @@
 			files = (
 				5108032925AE1D01004D6BB3 /* LaunchScreen.storyboard in Resources */,
 				5108032625AE1D01004D6BB3 /* Assets.xcassets in Resources */,
-				5108032125AE1CFF004D6BB3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,12 +274,32 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5108035C25AE1E3F004D6BB3 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5108031225AE1CFF004D6BB3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5108031E25AE1CFF004D6BB3 /* ViewController.swift in Sources */,
 				5108031A25AE1CFF004D6BB3 /* AppDelegate.swift in Sources */,
 				5108032425AE1CFF004D6BB3 /* Artly.xcdatamodeld in Sources */,
 				5108031C25AE1CFF004D6BB3 /* SceneDelegate.swift in Sources */,
@@ -300,14 +338,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5108031F25AE1CFF004D6BB3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5108032025AE1CFF004D6BB3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5108032725AE1D01004D6BB3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -442,7 +472,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4DJ2Q6S28R;
-				INFOPLIST_FILE = Artly/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Artly/Resourses/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,7 +491,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4DJ2Q6S28R;
-				INFOPLIST_FILE = Artly/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Artly/Resourses/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

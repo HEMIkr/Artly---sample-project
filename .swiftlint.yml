@@ -1,0 +1,15 @@
+line_length: 180
+
+disabled_rules:
+- trailing_whitespace
+- force_cast
+- large_tuple
+- unused_setter_value
+- no_fallthrough_only
+
+nesting:
+ type_level: 3
+
+identifier_name:
+    excluded:
+    - id

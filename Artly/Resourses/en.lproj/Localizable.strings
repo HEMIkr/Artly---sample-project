@@ -1,0 +1,7 @@
+
+// MARK: - Common
+"common_ok" = "OK";
+"common_application_title" = "Artly";
+
+// MARK: - Users
+"users_fields_of_expertise" = "Fields of expertise:";

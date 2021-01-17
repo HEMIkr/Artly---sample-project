@@ -8,8 +8,7 @@
 import UIKit
 import Models
 
-protocol UsersViewBehaviour: AnyObject {
-    func displayError(_ error: Error)
+protocol UsersViewBehaviour: ViewBehaviour {
     func displayUsers(_ users: [User])
 }
 
@@ -35,8 +34,9 @@ final class UsersViewController: UIViewController {
         buildView()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setupDesign(.standard)
         dataProvider?.getUsersList()
     }
     
@@ -61,14 +61,6 @@ final class UsersViewController: UIViewController {
 
 // MARK: - Scene communication methods
 extension UsersViewController: UsersViewBehaviour {
-    func displayError(_ error: Error) {
-        DispatchQueue.main.async {
-            let alertController = UIAlertController(title: error.localizedDescription, message: nil, preferredStyle: .alert)
-            alertController.addAction(.init(title: Strings.ok.localized, style: .default, handler: nil))
-            self.present(alertController, animated: true, completion: nil)
-        }
-    }
-    
     func displayUsers(_ users: [User]) {
         DispatchQueue.main.async {
             self.tableViewController?.displayList(users)

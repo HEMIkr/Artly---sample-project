@@ -40,8 +40,7 @@ extension UsersRouter: UsersRoutingLogic {
 // MARK: - Routing
 extension UsersRouter {
     private func routeToDetails(of user: User) {
-        let detailsViewController = UIViewController()
-        detailsViewController.view.backgroundColor = .red
+        let detailsViewController = UserDetailsViewController(user)
         viewController?.show(detailsViewController, sender: nil)
     }
 }

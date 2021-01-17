@@ -17,9 +17,12 @@ final class NavigationController: UINavigationController {
     }
     
     private func setup() {
-        self.navigationBar.isTranslucent = false
-        self.navigationBar.tintColor = UIColor.gray
-        self.navigationBar.shadowImage = UIImage()
-        self.navigationBar.addShadow()
+        view.backgroundColor = .appBackground
+        navigationBar.shadowImage = UIImage()
+        setupDesign(.standard)
+        navigationBar.titleTextAttributes = [
+            .font: UIFont.font(ofSize: 25, weight: .medium),
+            .foregroundColor: UIColor.appTheme
+        ]
     }
 }

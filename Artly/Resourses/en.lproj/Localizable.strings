@@ -1,7 +1,13 @@
 
 // MARK: - Common
 "common_ok" = "OK";
+"common_close" = "Close";
 "common_application_title" = "Artly";
 
 // MARK: - Users
 "users_fields_of_expertise" = "Fields of expertise:";
+
+// MARK: - User Details
+"user_details_follow" = "Follow";
+"user_details_unfollow" = "Unfollow";
+"user_details_photos" = "Photos";

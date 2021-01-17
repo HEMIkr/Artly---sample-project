@@ -7,7 +7,6 @@
 
 import Foundation
 import Models
-import NetworkingModule
 
 protocol UsersDataProvider: AnyObject {
     func getUsersList()
@@ -21,7 +20,6 @@ final class UsersViewModel {
     }
     
     let repository: UsersRepository = .init()
-    private var currentPage = 0
 }
 
 extension UsersViewModel: UsersDataProvider {
@@ -32,6 +30,8 @@ extension UsersViewModel: UsersDataProvider {
             case .failure(let error):
                 self?.viewBehaviour.displayError(error)
             case .success(let responseModel):
+                let followed = self?.repository.getFollowed() ?? []
+                responseModel.users.forEach { $0.setFollowed(followed.contains($0.id)) }
                 self?.viewBehaviour.displayUsers(responseModel.users)
             }
         }

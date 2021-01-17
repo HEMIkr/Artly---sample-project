@@ -10,6 +10,7 @@ import UIKit
 extension AppDelegate {
     func setupWindow() {
         self.window = UIWindow()
+        self.window?.backgroundColor = .appBackground
     }
     
     func setupInitialScene() {

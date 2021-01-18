@@ -14,6 +14,7 @@ enum Strings: String {
     case title = "common_application_title"
     enum Users: String {
         case fieldsOfExpertise = "users_fields_of_expertise"
+        case showFollowed = "users_show_followed"
     }
     
     enum UserDetails: String {

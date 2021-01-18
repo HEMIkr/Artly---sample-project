@@ -10,30 +10,53 @@ import Models
 
 protocol UsersDataProvider: AnyObject {
     func getUsersList()
+    func getFollowed(_ onlyFollowed: Bool)
 }
 
 final class UsersViewModel {
+    
+    // MARK: - Properties
+    
     private unowned var viewBehaviour: UsersViewBehaviour
+    private let repository: UsersRepository = .init()
+    
+    // MARK: - Lifecycle
     
     init(viewBehaviour: UsersViewBehaviour) {
         self.viewBehaviour = viewBehaviour
     }
     
-    let repository: UsersRepository = .init()
-}
-
-extension UsersViewModel: UsersDataProvider {
+    // MARK: - Helpers
     
-    func getUsersList() {
+    private func getUsers(_ onlyFollowed: Bool = false) {
         repository.getCreatorsToFollow { [weak self] result in
             switch result {
             case .failure(let error):
                 self?.viewBehaviour.displayError(error)
             case .success(let responseModel):
                 let followed = self?.repository.getFollowed() ?? []
-                responseModel.users.forEach { $0.setFollowed(followed.contains($0.id)) }
-                self?.viewBehaviour.displayUsers(responseModel.users)
+                var users = responseModel.users
+                users = users.compactMap { user in
+                    user.setFollowed(followed.contains(user.id))
+                    if onlyFollowed {
+                        let ifFollowed = user.isFollowed ?? false
+                        return ifFollowed ? user : nil
+                    }
+                    return user
+                }
+                self?.viewBehaviour.displayUsers(users)
             }
         }
+    }
+}
+
+// MARK: - Protocol implementation
+extension UsersViewModel: UsersDataProvider {
+    func getFollowed(_ onlyFollowed: Bool) {
+        getUsers(onlyFollowed)
+    }
+    
+    func getUsersList() {
+        getUsers()
     }
 }

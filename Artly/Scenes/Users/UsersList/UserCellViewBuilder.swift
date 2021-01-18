@@ -26,7 +26,7 @@ struct UserCellViewBuilder {
         static var followImageSide: CGFloat = 25
     }
     
-    unowned let cell: UserTableViewCell
+    private unowned let cell: UserTableViewCell
     
     init(_ cell: UserTableViewCell) {
         self.cell = cell

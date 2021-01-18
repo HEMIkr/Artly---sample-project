@@ -41,4 +41,10 @@ class UserModelTests: XCTestCase {
         
         XCTAssert(user?.profileUrl == expectedURL)
     }
+    
+    func testProfileUrl() {
+        let user = model
+        
+        XCTAssert(user?.imageUrls.count == 6)
+    }
 }

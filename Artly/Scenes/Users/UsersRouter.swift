@@ -12,7 +12,9 @@ import UIKit
 protocol UsersRoutingLogic: RoutingLogic { }
 
 final class UsersRouter {
+    
     // MARK: - Nested types & properties
+    
     typealias Destination = RoutingDestination
     enum RoutingDestination {
         case userDetails(User)

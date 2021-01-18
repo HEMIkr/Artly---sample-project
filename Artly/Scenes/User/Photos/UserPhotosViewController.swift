@@ -14,7 +14,7 @@ final class UserPhotosViewController: UICollectionViewController {
     private enum Constants {
         static var cellSizeMultiplier: CGFloat { 0.8 }
     }
-    let photoUrls: [URL]
+    private let photoUrls: [URL]
     
     // MARK: - Lifecycle
     

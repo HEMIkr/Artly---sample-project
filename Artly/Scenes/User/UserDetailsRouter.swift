@@ -12,7 +12,9 @@ import MapKit
 protocol UserDetailsRoutingLogic: RoutingLogic { }
 
 final class UserDetailsRouter {
+    
     // MARK: - Nested types & properties
+    
     typealias Destination = RoutingDestination
     enum RoutingDestination {
         case map(_ region: MKCoordinateRegion)
@@ -44,7 +46,7 @@ extension UserDetailsRouter: UsersRoutingLogic {
 extension UserDetailsRouter {
     
     private func routeToMap(_ region: MKCoordinateRegion) {
-        let mapViewController = MapViewController(region)
+        let mapViewController = UserMapViewController(region)
         viewController?.present(NavigationController(rootViewController: mapViewController), animated: true, completion: nil)
     }
     

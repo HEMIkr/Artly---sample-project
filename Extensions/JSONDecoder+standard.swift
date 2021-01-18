@@ -1,5 +1,5 @@
 //
-//  JSONDecoder+stategy.swift
+//  JSONDecoder+standard.swift
 //  Extensions
 //
 //  Created by Aleksander Wędrychowski on 14/01/2021.

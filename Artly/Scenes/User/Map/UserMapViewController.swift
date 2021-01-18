@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-final class MapViewController: UIViewController {
+final class UserMapViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -28,6 +28,7 @@ final class MapViewController: UIViewController {
     
     override func loadView() {
         mapView = MKMapView()
+        mapView.accessibilityHint = String(describing: self)
         view = mapView
     }
     
@@ -45,6 +46,7 @@ final class MapViewController: UIViewController {
     
     private func setupNavigationBar() {
         let closeItem = UIBarButtonItem(title: Strings.close.localized, style: .done, target: self, action: #selector(closeTapped))
+        closeItem.accessibilityLabel = "close"
         navigationItem.leftBarButtonItem = closeItem
     }
     

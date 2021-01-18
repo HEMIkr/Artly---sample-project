@@ -25,7 +25,6 @@ public struct PersistenceHandler: PersistenceManager {
         else {
             return []
         }
-        print("trying to get: \(String(describing: Array<T>.self))")
         return instances
     }
     

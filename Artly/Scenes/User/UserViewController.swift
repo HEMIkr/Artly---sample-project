@@ -50,7 +50,7 @@ final class UserDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataProvider?.fetchUserDetails()
+        dataProvider?.getData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,8 +92,9 @@ final class UserDetailsViewController: UIViewController {
     // MARK: - Helpers
     
     private func updateFollowButton() {
-        let isFollowed = self.dataProvider?.isFollowed() ?? false
-        let followTitle = isFollowed ? Strings.UserDetails.unfollow.localized : Strings.UserDetails.follow.localized
+        let follow = Strings.UserDetails.follow.localized
+        let unfollow = Strings.UserDetails.unfollow.localized
+        let followTitle = followButton.title(for: .normal) == follow ? unfollow : follow
         self.followButton.setTitle(followTitle, for: .normal)
     }
     
@@ -121,14 +122,12 @@ final class UserDetailsViewController: UIViewController {
 extension UserDetailsViewController: UserDetailsViewBehaviour {
     func displayRegion(_ region: MKCoordinateRegion) {
         DispatchQueue.main.async {
-            self.mapView.alpha = 1
-            self.mapView.setRegion(region, animated: true)
+            self.mapView.setRegion(region, animated: false)
         }
     }
     
     func displayUserDetails(_ user: User) {
         DispatchQueue.main.async {
-            self.mapView.alpha = 0.5
             self.profileImageView.getImage(from: user.profileImageUrl)
             self.usernameLabel.text = "@" + user.username
             self.nameLabel.text = user.displayName
@@ -137,7 +136,8 @@ extension UserDetailsViewController: UserDetailsViewBehaviour {
             }
             self.descriptionLabel.text = user.description
             self.showPhotosButton.isHidden = user.imageUrls.isEmpty
-            self.updateFollowButton()
+            let followTitle = user.isFollowed ?? false ? Strings.UserDetails.unfollow.localized : Strings.UserDetails.follow.localized
+            self.followButton.setTitle(followTitle, for: .normal)
         }
     }
 }

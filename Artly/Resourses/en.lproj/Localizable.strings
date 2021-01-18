@@ -6,6 +6,7 @@
 
 // MARK: - Users
 "users_fields_of_expertise" = "Fields of expertise:";
+"users_show_followed" = "Show Followed";
 
 // MARK: - User Details
 "user_details_follow" = "Follow";

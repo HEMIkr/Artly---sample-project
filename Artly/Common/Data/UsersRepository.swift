@@ -28,9 +28,10 @@ final class UsersRepository {
         return persistence.toggle(followModel, key: String(describing: Followed.self))
     }
     
-    func isFollowed(_ user: User) -> Bool {
+    func getIsFollowed(_ user: User, completion: @escaping (Bool) -> Void) {
         let followModel = Followed(id: user.id)
-        return persistence.contains(followModel, key: String(describing: Followed.self))
+        let isFollowed = persistence.contains(followModel, key: String(describing: Followed.self))
+        completion(isFollowed)
     }
     
     func getFollowed() -> [Int] {

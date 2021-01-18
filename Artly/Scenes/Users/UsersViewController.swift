@@ -13,9 +13,11 @@ protocol UsersViewBehaviour: ViewBehaviour {
 }
 
 final class UsersViewController: UIViewController {
-    private var dataProvider: UsersDataProvider?
-    private var router: UsersRouter?
     
+    // MARK: - Properties
+    
+    private var dataProvider: UsersDataProvider!
+    private var router: UsersRouter!
     private var tableViewController: UsersListTableViewController?
     
     // MARK: - Lifecycle
@@ -37,7 +39,7 @@ final class UsersViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setupDesign(.standard)
-        dataProvider?.getUsersList()
+        dataProvider.getUsersList()
     }
     
     // MARK: - Setup
@@ -51,11 +53,30 @@ final class UsersViewController: UIViewController {
     
     private func buildView() {
         view = UIView()
-        navigationItem.title = Strings.title.localized
+        setupTableView()
+        setupNavigationBar()
+    }
+    
+    private func setupTableView() {
         let tableViewController = UsersListTableViewController()
         tableViewController.delegate = self
         view.addConstraintedSubview(tableViewController.view)
         self.tableViewController = tableViewController
+    }
+    
+    private func setupNavigationBar() {
+        navigationItem.title = Strings.title.localized
+        
+        let builder = UsersViewBuilder()
+        let (barItem, followedSwitch) = builder.buildBarItem()
+        followedSwitch.addTarget(self, action: #selector(followedToggled), for: .valueChanged)
+        navigationItem.rightBarButtonItem = barItem
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func followedToggled(_ sender: UISwitch) {
+        dataProvider.getFollowed(sender.isOn)
     }
 }
 

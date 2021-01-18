@@ -68,7 +68,6 @@
 		5197554125B371FA0013E54E /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5197554025B371FA0013E54E /* UserViewController.swift */; };
 		5197554A25B372240013E54E /* UserDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5197554925B372240013E54E /* UserDetailsRouter.swift */; };
 		5197555325B3723C0013E54E /* UserDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5197555225B3723C0013E54E /* UserDetailsViewModel.swift */; };
-		5197556C25B42F210013E54E /* UIViewController+displayError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5197556B25B42F210013E54E /* UIViewController+displayError.swift */; };
 		5197557E25B42FAE0013E54E /* ViewBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5197557D25B42FAE0013E54E /* ViewBehaviour.swift */; };
 		5197558E25B4314D0013E54E /* UserDetailsViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5197558D25B4314D0013E54E /* UserDetailsViewBuilder.swift */; };
 		5197559725B457520013E54E /* UserCellViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5197559625B457520013E54E /* UserCellViewBuilder.swift */; };
@@ -284,7 +283,6 @@
 		5197554025B371FA0013E54E /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		5197554925B372240013E54E /* UserDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsRouter.swift; sourceTree = "<group>"; };
 		5197555225B3723C0013E54E /* UserDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModel.swift; sourceTree = "<group>"; };
-		5197556B25B42F210013E54E /* UIViewController+displayError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+displayError.swift"; sourceTree = "<group>"; };
 		5197557D25B42FAE0013E54E /* ViewBehaviour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBehaviour.swift; sourceTree = "<group>"; };
 		5197558D25B4314D0013E54E /* UserDetailsViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewBuilder.swift; sourceTree = "<group>"; };
 		5197559625B457520013E54E /* UserCellViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewBuilder.swift; sourceTree = "<group>"; };
@@ -721,7 +719,6 @@
 		5197566925B4D44E0013E54E /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				5197556B25B42F210013E54E /* UIViewController+displayError.swift */,
 				519754E225B35ED10013E54E /* UIImageView+getImage.swift */,
 				519754C725B34FC90013E54E /* UIView+roundCorners.swift */,
 				519754A525B346C10013E54E /* UIView+shadow.swift */,
@@ -1279,7 +1276,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5133625C25B09DA30099C95C /* JSONDecoder+standard.swift in Sources */,
-				5197556C25B42F210013E54E /* UIViewController+displayError.swift in Sources */,
 				510C9B3625B0C69F00D44B1F /* Collection+safe.swift in Sources */,
 				510C9B3F25B0C76500D44B1F /* UIView+addConstraintedSubview.swift in Sources */,
 				519754A625B346C10013E54E /* UIView+shadow.swift in Sources */,

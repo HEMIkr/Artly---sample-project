@@ -10,7 +10,8 @@ import Models
 import Extensions
 
 protocol UsersListTableViewControllerDelegate: AnyObject {
-    func usersListTableViewController(didSelect user: User)
+    func usersListTableViewController(_ viewController: UsersListTableViewController, didSelect user: User)
+    func usersListTableViewControllerRequestsRefresh(_ viewController: UsersListTableViewController)
 }
 
 final class UsersListTableViewController: UITableViewController {
@@ -42,6 +43,10 @@ final class UsersListTableViewController: UITableViewController {
         tableView.contentInset = Constants.inset
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView()
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshPulled), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
     
     // MARK: - Endpoints
@@ -75,6 +80,21 @@ final class UsersListTableViewController: UITableViewController {
         showNewContent()
     }
     
+    func showLoading() {
+        tableView.refreshControl?.beginRefreshing()
+    }
+    
+    func hideLoading() {
+        tableView.refreshControl?.endRefreshing()
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func refreshPulled(_ sender: UIRefreshControl) {
+        guard sender.isRefreshing else { return }
+        delegate?.usersListTableViewControllerRequestsRefresh(self)
+    }
+    
     // MARK: = TableView methods
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -91,6 +111,6 @@ final class UsersListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let accordingUser = users[safe: indexPath.row] else { return }
-        delegate?.usersListTableViewController(didSelect: accordingUser)
+        delegate?.usersListTableViewController(self, didSelect: accordingUser)
     }
 }

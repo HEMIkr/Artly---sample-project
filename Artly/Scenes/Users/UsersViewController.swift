@@ -19,6 +19,7 @@ final class UsersViewController: UIViewController {
     private var dataProvider: UsersDataProvider!
     private var router: UsersRouter!
     private var tableViewController: UsersListTableViewController?
+    private var followSwitch: UISwitch?
     
     // MARK: - Lifecycle
     
@@ -71,11 +72,13 @@ final class UsersViewController: UIViewController {
         let (barItem, followedSwitch) = builder.buildBarItem()
         followedSwitch.addTarget(self, action: #selector(followedToggled), for: .valueChanged)
         navigationItem.rightBarButtonItem = barItem
+        self.followSwitch = followedSwitch
     }
     
     // MARK: - Actions
     
     @objc private func followedToggled(_ sender: UISwitch) {
+        tableViewController?.showLoading()
         dataProvider.getFollowed(sender.isOn)
     }
 }
@@ -84,14 +87,28 @@ final class UsersViewController: UIViewController {
 extension UsersViewController: UsersViewBehaviour {
     func displayUsers(_ users: [User]) {
         DispatchQueue.main.async {
+            self.tableViewController?.hideLoading()
             self.tableViewController?.displayList(users)
+        }
+    }
+    
+    func displayError(_ error: Error) {
+        DispatchQueue.main.async {
+            self.tableViewController?.hideLoading()
+            let alertController = UIAlertController(title: error.localizedDescription, message: nil, preferredStyle: .alert)
+            alertController.addAction(.init(title: Strings.ok.localized, style: .default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
         }
     }
 }
 
 // MARK: - Users List controller delegate
 extension UsersViewController: UsersListTableViewControllerDelegate {
-    func usersListTableViewController(didSelect user: User) {
+    func usersListTableViewController(_ viewController: UsersListTableViewController, didSelect user: User) {
         router?.navigate(to: .userDetails(user))
+    }
+    
+    func usersListTableViewControllerRequestsRefresh(_ viewController: UsersListTableViewController) {
+        dataProvider?.getFollowed(followSwitch?.isOn ?? false)
     }
 }
